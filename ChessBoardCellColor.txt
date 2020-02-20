@@ -1,0 +1,41 @@
+function chessBoardCellColor([x1,y1], [x2, y2]){
+    x1 = toNumber(x1)
+    x2 = toNumber(x2)
+    y1 = Number(y1)
+    y2 = Number(y2)
+    minus1 = Math.abs(x1-x2);
+    minus2 = Math.abs(y1-y2)
+    if(minus1==minus2){
+        return true;
+    }
+    return false;
+}
+function toNumber(x){
+    switch (x) {
+  case "A":
+    x = 1;
+    break;
+  case "B":
+    x = 2;
+    break;
+    case "C":
+    x=3;
+    break;
+    case "D":
+    x=4;
+    break;
+    case "E":
+    x=5;
+    break;
+    case "F":
+    x=6;
+    break;
+    case "G":
+    x=7;
+    break;
+    case "H":
+    x=8;
+    break;
+}
+    return x;
+}

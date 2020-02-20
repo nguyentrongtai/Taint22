@@ -1,0 +1,8 @@
+function gameOfMatches(n){
+    let j = n-8;
+    if (n<6)
+    return "Ngoc"
+    if(n%7==0 || j%7 ==0)
+    return "Phong"
+    else return "Ngoc"
+}
