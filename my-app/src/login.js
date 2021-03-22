@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { Form, Input, Button, Checkbox } from "antd";
 
 const layout = {
@@ -9,9 +9,26 @@ const tailLayout = {
     wrapperCol: { offset: 8, span: 16 },
 };
 
-const Demo = () => {
-    const onFinish = (values: any) => {
-        console.log("Success:", values);
+async function loginUser(credentials) {
+    return fetch("http://localhost:8080/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(credentials),
+    }).then((data) => data.json());
+}
+
+const Login = ({ setToken }) => {
+    const onFinish = async (value) => {
+        // e.preventDefault();
+        // console.log(userName, passWord);
+        console.log(value);
+        const token = await loginUser({
+            // userName,
+            // passWord,
+        });
+        setToken(token);
     };
 
     const onFinishFailed = (errorInfo: any) => {
@@ -56,4 +73,4 @@ const Demo = () => {
     );
 };
 
-export { Demo };
+export default Login;
